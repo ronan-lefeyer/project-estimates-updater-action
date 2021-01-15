@@ -1,0 +1,28 @@
+name: Project estimates updater
+description: Automatically update GitHub projects description and each project columns titles with the total of estimates
+author: Ronan LE FEYER <ronan.lefeyer@decathlon.com>
+inputs:
+  token:
+    description: GitHub repository token
+    requried: true
+  owner:
+    description: GitHub user or organisation
+    requried: true
+  repo:
+    description: GitHub repository name
+    required: true
+  pattern-project-name:
+      description: Pattern project name used to filter on projects in the repo. The project name must start with this pattern
+      required: true
+  project-state:
+    description: The project state
+    required: true
+  pattern-column-name:
+    description: The pattern of the column name used to calculate the estimate of a project. The column name must start with this pattern
+    required: true
+  estimate-label-description:
+    description: The description of the label used to store estimate informations
+    required: true
+runs:
+  using: node12
+  main: index.js

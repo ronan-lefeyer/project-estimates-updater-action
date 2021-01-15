@@ -1,0 +1,22 @@
+{
+  "name": "project-estimates-updater-action",
+  "version": "1.0.0",
+  "description": "Automatically update GitHub projects description and each project columns titles with the total of estimates",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronan-lefeyer/project-estimates-updater-action.git"
+  },
+  "keywords": [],
+  "author": "Ronan LE FEYER",
+  "license": "Apache License v2",
+  "bugs": {
+    "url": "https://github.com/ronan-lefeyer/project-estimates-updater-action/issues"
+  },
+  "homepage": "https://github.com/ronan-lefeyer/project-estimates-updater-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@octokit/rest": "^18.0.12"
+  }
+}
