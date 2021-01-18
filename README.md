@@ -42,7 +42,4 @@ on:
               repo: ${{ github.event.repository.name }}
               token: ${{ secrets.GITHUB_TOKEN }}
               pattern-project-name: 'Sprint'
-              project-state: 'open'
-              column-name: 'Done'
-              estimate-label-description: 'Story Point'
 ```
