@@ -16,13 +16,13 @@ inputs:
       required: true
   project-state:
     description: The project state
-    required: true
+    default: open
   pattern-column-name:
     description: The pattern of the column name used to calculate the estimate of a project. The column name must start with this pattern
-    required: true
+    default: Done
   estimate-label-description:
     description: The description of the label used to store estimate informations
-    required: true
+    default: Story Point
 runs:
   using: node12
   main: index.js
