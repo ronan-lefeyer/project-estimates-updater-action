@@ -4,8 +4,8 @@ const { Octokit } = require("@octokit/rest")
 
 try {
   const token = core.getInput('token')
-  const owner = core.getInput('owner')
-  const repo = core.getInput('repo')
+  const owner = github.context.repo.owner
+  const repo = github.context.repo.repo
   const estimate_label_description = core.getInput('estimate-label-description')
   const pattern_column_name = core.getInput('pattern-column-name')
   const pattern_project_name = core.getInput('pattern-project-name')
@@ -22,7 +22,7 @@ try {
             Promise.all(cards.map((card) => (
               octokit.issues.listLabelsOnIssue({owner,repo,issue_number: /[^/]*$/.exec(card.content_url)[0]}).then(({ data: labels }) => {
                 let total = 0
-                labels.filter((l) => l.description = estimate_label_description).map((l) => {
+                labels.filter((l) => matchToEstimateLabelDescription(l)).map((l) => {
                   total = total + parseInt(l.name)
                 })
 
@@ -55,6 +55,10 @@ try {
 
   function matchToProjectStateAndPattern(project) {
     return project.name.search(pattern_project_name) === 0 && project.state === project_state
+  }
+
+  function matchToEstimateLabelDescription(label) {
+    return label.description === estimate_label_description
   }
 } catch (error) {
   core.setFailed(error.message)
