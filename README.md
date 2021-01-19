@@ -12,8 +12,6 @@ Project must have one or more labels with a specific description (like Story Poi
 ## Inputs
 
 - **token** *(mandatory)* - GitHub repository token
-- **owner** *(mandatory)*  - GitHub user or organisation.
-- **repo** *(mandatory)* - GitHub repository name.
 - **pattern-project-name** *(mandatory)* - The pattern of the project name used to filter on projects in the repo. The project name must start with this pattern
 - **project-state** *(default:open)* - The Github project state.
 - **pattern-column-name** *(default:Done)*- The pattern of the column name used to calculate the estimate of a project. The column name must start with this pattern
@@ -38,8 +36,6 @@ on:
         steps:
           - uses: ronan-lefeyer/project-estimates-action:1.0
             with:
-              owner: ${{ github.repository_owner }}
-              repo: ${{ github.event.repository.name }}
               token: ${{ secrets.GITHUB_TOKEN }}
               pattern-project-name: 'Sprint'
 ```
